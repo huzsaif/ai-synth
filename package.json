@@ -1,0 +1,14 @@
+{
+  "name": "ai-synth-wrapper",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "cd ai-synth && npm run dev",
+    "build": "cd ai-synth && npm run build",
+    "lint": "cd ai-synth && npm run lint",
+    "preview": "cd ai-synth && npm run preview",
+    "start": "cd ai-synth && npm run start",
+    "install:all": "npm install && cd ai-synth && npm install"
+  }
+} 
