@@ -12,7 +12,6 @@ import {
 import { ContentCopy } from '@mui/icons-material';
 import type { LLMResponse } from '../types';
 import ReactMarkdown from 'react-markdown';
-import { atomDark, prism } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import { useAppContext } from '../contexts/AppContext';
 
 interface ResponseViewerProps {
@@ -26,7 +25,6 @@ const ResponseViewer: React.FC<ResponseViewerProps> = ({ response, isLoading, mo
   const muiTheme = useMuiTheme();
   const modelName = model === 'chatgpt' ? 'ChatGPT' : 'Gemini';
   const modelColor = model === 'chatgpt' ? '#10a37f' : '#4285F4';
-  const isDarkMode = settings.theme === 'dark';
 
   const copyToClipboard = (text: string) => {
     navigator.clipboard.writeText(text);
