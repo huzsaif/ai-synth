@@ -152,27 +152,7 @@ const ResponseViewer: React.FC<ResponseViewerProps> = ({ response, isLoading, mo
             }
           }}
         >
-          <ReactMarkdown
-            components={{
-              code({ node, inline, className, children, ...props }) {
-                const match = /language-(\w+)/.exec(className || '');
-                return !inline && match && settings.syntaxHighlighting ? (
-                  <SyntaxHighlighter
-                    style={highlightStyle}
-                    language={match[1]}
-                    PreTag="div"
-                    {...props}
-                  >
-                    {String(children).replace(/\n$/, '')}
-                  </SyntaxHighlighter>
-                ) : (
-                  <code className={className} {...props}>
-                    {children}
-                  </code>
-                );
-              }
-            }}
-          >
+          <ReactMarkdown>
             {response.content}
           </ReactMarkdown>
         </Box>

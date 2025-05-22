@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import type { AppSettings, Theme, ApiConfig, ComparisonResult } from '../types';
+import type { AppSettings, ApiConfig, ComparisonResult } from '../types';
 import { getSettings, saveSettings, getComparisonHistory, saveComparisonToHistory } from '../utils/storage';
 import { ENV } from '../config/env';
 

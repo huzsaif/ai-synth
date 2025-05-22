@@ -7,7 +7,7 @@ import ResponseViewer from '../components/ResponseViewer';
 import HistorySidebar from '../components/HistorySidebar';
 import { compareResponses } from '../services/llmService';
 import { useAppContext } from '../contexts/AppContext';
-import type { ComparisonResult, LLMResponse } from '../types';
+import type { LLMResponse } from '../types';
 
 const HISTORY_SIDEBAR_WIDTH = 280;
 
@@ -17,7 +17,7 @@ const Dashboard: React.FC = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [chatgptResponse, setChatgptResponse] = useState<LLMResponse | undefined>();
   const [geminiResponse, setGeminiResponse] = useState<LLMResponse | undefined>();
-  const [currentPrompt, setCurrentPrompt] = useState('');
+  const [prompt, setPrompt] = useState('');
 
   const handleOpenSettings = () => {
     setIsSettingsOpen(true);
@@ -29,7 +29,7 @@ const Dashboard: React.FC = () => {
 
   const handleCompare = async (prompt: string) => {
     setIsLoading(true);
-    setCurrentPrompt(prompt);
+    setPrompt(prompt);
     setChatgptResponse(undefined);
     setGeminiResponse(undefined);
     
@@ -70,9 +70,9 @@ const Dashboard: React.FC = () => {
     }
   };
 
-  const handleSelectPromptFromHistory = (prompt: string) => {
-    setCurrentPrompt(prompt);
-    handleCompare(prompt);
+  const handleSelectPromptFromHistory = (historyPrompt: string) => {
+    setPrompt(historyPrompt);
+    handleCompare(historyPrompt);
   };
 
   return (
