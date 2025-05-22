@@ -12,7 +12,6 @@ import {
 import { ContentCopy } from '@mui/icons-material';
 import type { LLMResponse } from '../types';
 import ReactMarkdown from 'react-markdown';
-import { useAppContext } from '../contexts/AppContext';
 
 interface ResponseViewerProps {
   response?: LLMResponse;
@@ -21,7 +20,6 @@ interface ResponseViewerProps {
 }
 
 const ResponseViewer: React.FC<ResponseViewerProps> = ({ response, isLoading, model }) => {
-  const { settings } = useAppContext();
   const muiTheme = useMuiTheme();
   const modelName = model === 'chatgpt' ? 'ChatGPT' : 'Gemini';
   const modelColor = model === 'chatgpt' ? '#10a37f' : '#4285F4';
