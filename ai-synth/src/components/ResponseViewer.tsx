@@ -12,7 +12,6 @@ import {
 import { ContentCopy } from '@mui/icons-material';
 import type { LLMResponse } from '../types';
 import ReactMarkdown from 'react-markdown';
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { atomDark, prism } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import { useAppContext } from '../contexts/AppContext';
 
@@ -86,8 +85,6 @@ const ResponseViewer: React.FC<ResponseViewerProps> = ({ response, isLoading, mo
       </Paper>
     );
   }
-
-  const highlightStyle = isDarkMode ? atomDark : prism;
 
   return (
     <Paper

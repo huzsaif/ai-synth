@@ -17,7 +17,6 @@ const Dashboard: React.FC = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [chatgptResponse, setChatgptResponse] = useState<LLMResponse | undefined>();
   const [geminiResponse, setGeminiResponse] = useState<LLMResponse | undefined>();
-  const [prompt, setPrompt] = useState('');
 
   const handleOpenSettings = () => {
     setIsSettingsOpen(true);
@@ -29,7 +28,6 @@ const Dashboard: React.FC = () => {
 
   const handleCompare = async (prompt: string) => {
     setIsLoading(true);
-    setPrompt(prompt);
     setChatgptResponse(undefined);
     setGeminiResponse(undefined);
     
@@ -71,7 +69,6 @@ const Dashboard: React.FC = () => {
   };
 
   const handleSelectPromptFromHistory = (historyPrompt: string) => {
-    setPrompt(historyPrompt);
     handleCompare(historyPrompt);
   };
 
@@ -113,7 +110,7 @@ const Dashboard: React.FC = () => {
           {/* Prompt Input Section */}
           <PromptInput 
             onSubmit={handleCompare} 
-            isLoading={isLoading} 
+            isLoading={isLoading}
           />
           
           {/* Responses Section */}
